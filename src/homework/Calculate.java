@@ -30,12 +30,12 @@ public class Calculate {
                     operator = "*";
                     break;
                 case 4:
+                    operator = "/";
                     if (b == 0) {
                         result = 0;
                         break;
                     }
                     result = a / b;
-                    operator = "/";
                     break;
             }
 
