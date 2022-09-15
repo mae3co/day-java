@@ -4,44 +4,55 @@ import java.util.Scanner;
 
 public class Calculate {
     public static void main(String[] args) {
-        do {
+        while (true) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("1 param : ");
             int a = scanner.nextInt();
             System.out.println("2 param : ");
             int b = scanner.nextInt();
+            System.out.println("Choose one : ");
+            String c = scanner.next();
+            calculate(a, b, c);
+        }
+    }
 
-            System.out.println("Choose one \n 1 : add \n 2 : min  \n 3 : mul \n 4 : div");
-            int c = scanner.nextInt();
+    public static void calculate(int a, int b, String c) {
             int result = 0;
-            String operator = null;
             switch (c) {
-
-                case 1:
-                    result = a + b;
-                    operator = "+";
+                case "+":
+                    result = add(a, b);
                     break;
-                case 2:
-                    result = a - b;
-                    operator = "-";
+                case "-":
+                    result = min(a, b);
                     break;
-                case 3:
-                    result = a * b;
-                    operator = "*";
+                case "*":
+                    result = mul(a, b);
                     break;
-                case 4:
-                    operator = "/";
+                case "/":
                     if (b == 0) {
                         result = 0;
                         break;
                     }
-                    result = a / b;
+                    result = div(a, b);
                     break;
             }
+            System.out.println("결과 : " + a + " " + c + " " + b + " = " + result);
+    }
 
-            System.out.println("결과 = " + a + " " + operator + " " + b + " = " + result);
+    public static int add(int a, int b) {
+        return a+b;
+    }
 
-        }while (true);
+    public static int min(int a, int b) {
+        return a-b;
+    }
+
+    public static int mul(int a, int b) {
+        return a*b;
+    }
+
+    public static int div(int a, int b) {
+        return a/b;
     }
 }
 
